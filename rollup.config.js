@@ -1,25 +1,14 @@
-import nodeResolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 
 export default [{
-	input: 'index.js',
-	plugins: [nodeResolve()],
+	input: 'suid.js',
 	output: [{
-		file: 'index.cjs',
+		file: 'suid.cjs',
 		format: 'cjs',
 	}, {
-		file: 'index.min.js',
-		format: 'iife',
+		file: 'suid.min.js',
+		format: 'module',
 		plugins: [terser()],
 		sourcemap: true,
-	}, {
-		file: 'index.mjs',
-		format: 'module',
 	}],
-}, {
-	input: 'consts.js',
-	output: {
-		file: 'consts.cjs',
-		format: 'cjs',
-	}
 }];
